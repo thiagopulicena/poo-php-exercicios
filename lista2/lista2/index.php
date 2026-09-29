@@ -34,5 +34,6 @@ $produtoPadrao = Produto::criarPadrao();
 echo "<h3>Produto padrão</h3>";
 echo "Nome: " . $produtoPadrao->getNome() . "<br>";
 echo "Quantidade: " . $produtoPadrao->getQuantidade() . "<br>";
+echo "<br>Total pelo método estático: " . Produto::testeEstatico();
 
 ?>

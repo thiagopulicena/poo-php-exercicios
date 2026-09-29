@@ -2,6 +2,20 @@
 
 class Produto
 {
+    // self::$totalProdutos acessa um dado da classe, compartilhado por todos os objetos.
+    // $this->nome acessa um dado do objeto atual.
+
+    // Tentativa que causaria erro se fosse executada em um método static:
+    // public static function testeEstatico()
+    // {
+    //     return $this->nome;
+    // }
+    // Erro esperado: Using $this when not in object context.
+
+public static function testeEstatico()
+{
+    return self::$totalProdutos;
+}
     public static $totalProdutos = 0;
     public static $totalProdutos = 0;
     public static $estoqueTotal = 0;
