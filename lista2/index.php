@@ -1,6 +1,7 @@
 <?php
 
 require_once "Produto.php";
+require_once "FormatadorProduto.php";
 
 
 $produto1 = new Produto("Teclado Mecânico");
@@ -9,6 +10,9 @@ $produto1 = new Produto("Teclado Mecânico");
 $produto2 = new Produto("Mouse Gamer", 5);
 
 $produto3 = new Produto("Monitor", 2);
+
+$produto2->setStatus(Produto::STATUS_DESCONTINUADO);
+$produto3->setStatus(Produto::STATUS_DISPONIVEL);
 
 $produto1->setPreco(250);
 $produto2->setPreco(150);
@@ -26,5 +30,16 @@ echo "Preço: R$ " . $produto2->getPreco() . "<br>";
 echo "Quantidade: " . $produto2->getQuantidade();
 
 echo "<br>Total de produtos criados: " . Produto::$totalProdutos;
+echo "<br>Estoque total: " . Produto::$estoqueTotal;
+echo "<br>Preço formatado: " . FormatadorProduto::formatarPreco(250);
+$produtoPadrao = Produto::criarPadrao();
+
+echo "<h3>Produto padrão</h3>";
+echo "Nome: " . $produtoPadrao->getNome() . "<br>";
+echo "Quantidade: " . $produtoPadrao->getQuantidade() . "<br>";
+echo "<br>Total pelo método estático: " . Produto::testeEstatico();
+
+echo "<br>Status do produto 2: " . $produto2->getStatus();
+echo "<br>Status do produto 3: " . $produto3->getStatus();
 
 ?>

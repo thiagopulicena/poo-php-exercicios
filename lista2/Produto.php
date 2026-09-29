@@ -4,6 +4,9 @@ class Produto
 
 {
 public const NOME_PADRAO = "Sem nome";
+public const STATUS_DISPONIVEL = "disponível";
+public const STATUS_ESGOTADO = "esgotado";
+public const STATUS_DESCONTINUADO = "descontinuado";
     // self::$totalProdutos acessa um dado da classe, compartilhado por todos os objetos.
     // $this->nome acessa um dado do objeto atual.
 
@@ -24,11 +27,15 @@ public static function testeEstatico()
     private $nome;
     private $preco;
     private $quantidade; 
+    private $status;
 
     public function __construct($nome, $quantidade = 1)
     {
         $this->nome = $nome;
         $this->quantidade = $quantidade;
+        $this->status = $quantidade > 0
+        ? self::STATUS_DISPONIVEL
+        : self::STATUS_ESGOTADO;
         self::$totalProdutos++;
         self::$estoqueTotal += $quantidade;
     }
@@ -71,6 +78,16 @@ public static function testeEstatico()
     public static function criarPadrao()
 {
     return new self(self::NOME_PADRAO, 0);
+}
+
+public function setStatus($status)
+{
+    $this->status = $status;
+}
+
+public function getStatus()
+{
+    return $this->status;
 }
 }
 
