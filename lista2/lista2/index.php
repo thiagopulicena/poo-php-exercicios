@@ -29,5 +29,10 @@ echo "Quantidade: " . $produto2->getQuantidade();
 echo "<br>Total de produtos criados: " . Produto::$totalProdutos;
 echo "<br>Estoque total: " . Produto::$estoqueTotal;
 echo "<br>Preço formatado: " . FormatadorProduto::formatarPreco(250);
+$produtoPadrao = Produto::criarPadrao();
+
+echo "<h3>Produto padrão</h3>";
+echo "Nome: " . $produtoPadrao->getNome() . "<br>";
+echo "Quantidade: " . $produtoPadrao->getQuantidade() . "<br>";
 
 ?>

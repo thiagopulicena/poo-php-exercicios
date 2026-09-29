@@ -51,6 +51,11 @@ class Produto
     {
         return $this->quantidade;
     }
+
+    public static function criarPadrao()
+{
+    return new self("Sem nome", 0);
+}
 }
 
 ?>
