@@ -1,6 +1,7 @@
 <?php
 
 require_once "Produto.php";
+require_once "FormatadorProduto.php";
 
 
 $produto1 = new Produto("Teclado Mecânico");
@@ -27,5 +28,6 @@ echo "Quantidade: " . $produto2->getQuantidade();
 
 echo "<br>Total de produtos criados: " . Produto::$totalProdutos;
 echo "<br>Estoque total: " . Produto::$estoqueTotal;
+echo "<br>Preço formatado: " . FormatadorProduto::formatarPreco(250);
 
 ?>
